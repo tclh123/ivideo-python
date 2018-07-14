@@ -1,5 +1,4 @@
-import webbrowser
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_bootstrap import Bootstrap
 from forms import VipListForm
 
@@ -11,5 +10,5 @@ app.config['SECRET_KEY'] = 'gds324g3434'
 def index():
     form = VipListForm()
     if form.validate_on_submit():
-        webbrowser.open(f'{form.parser.data}{form.url.data}')
+        return redirect(f'{form.parser.data}{form.url.data}')
     return render_template('index.html', form=form)
