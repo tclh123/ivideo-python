@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 
 
 def make_choice(api_name):
-    api = requests.get('https://iodefog.github.io/text/viplist.json').json()
+    api = requests.get('https://iodefog.github.io/text/mviplistmm.json').json()
     return [(a['url'], a['name']) for a in api[api_name]]
 
 
